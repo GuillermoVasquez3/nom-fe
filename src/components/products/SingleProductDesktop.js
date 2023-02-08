@@ -1,7 +1,6 @@
-import { Alert,  Button,  Tooltip } from "@mui/material";
-import { Product, ProductActionsWrapper, ProductAddToList, ProductFavButton, ProductImage } from "../../style/products";
+import { Alert } from "@mui/material";
+import { Product, ProductActionsWrapper, ProductAddToList, ProductImage } from "../../style/products";
 import ProductMeta from "./ProductMeta";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import { useEffect, useState, useContext } from "react";
 import useDialogModal from "../../hooks/useDialogModal";
 import ProductDetail from "../details";
@@ -110,7 +109,7 @@ export default function SingleProductDesktop({ product, matches }) {
         localStorage.setItem('listaProductos', JSON.stringify([]));
         localStorage.setItem('listaProductos', JSON.stringify(productList));
     };
-    const [ProductDetailDialog, showProductDetailDialog, closeProductDialog] =
+    const [ProductDetailDialog, showProductDetailDialog] =
         useDialogModal(ProductDetail);
 
 
@@ -118,11 +117,11 @@ export default function SingleProductDesktop({ product, matches }) {
         <>
             <Product onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                 <ProductImage onClick={() => showProductDetailDialog()} src={"http://localhost:8080/images/" + product.image} />
-                <ProductFavButton isfav={0}>
+                {/* <ProductFavButton isfav={0}>
                     <Tooltip placement="left" title="Favorito">
                         <FavoriteIcon />
                     </Tooltip>
-                </ProductFavButton>
+                </ProductFavButton> */}
 
                 {showOptions && showAddToList && (
                     <ProductAddToList

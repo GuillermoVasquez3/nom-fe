@@ -1,11 +1,8 @@
-import { useTheme } from "@mui/material/styles";
-import { Typography, useMediaQuery } from "@mui/material";
 import { BannerContainer, BannerContent, BannerDescription, BannerImage, BannerProductButton, BannerTitle } from "../../style/banner";
+import { useNavigate } from "react-router-dom";
 
 export default function Banner() {
-    const theme = useTheme();
-    const matches = useMediaQuery(theme.breakpoints.down('md'));
-
+    const navigate = useNavigate();
     return (
         <BannerContainer>
             <BannerImage src="/images/banner/banner.png"/>
@@ -17,8 +14,8 @@ export default function Banner() {
                 <BannerDescription variant = 'subtitle'>
                     Somos Ñom una web que facilita la busqueda de alimentos ...
                 </BannerDescription>
-                <BannerProductButton color="primary">
-                    Mas Detalles
+                <BannerProductButton onClick={() => navigate('/signup')} color="primary">
+                    Únete aquí
                 </BannerProductButton>
             </BannerContent>
         </BannerContainer>

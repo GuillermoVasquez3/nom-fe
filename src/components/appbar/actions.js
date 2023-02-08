@@ -1,10 +1,9 @@
-import { Link } from "react-router-dom";
 import { Divider, ListItemButton, ListItemIcon } from "@mui/material";
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
-import FavoriteIcon from '@mui/icons-material/Favorite';
 import LoginIcon from '@mui/icons-material/Login';
 import { ActionIconsContainerDesktop, ActionIconsContainerMobile, MyList } from "../../style/appbar";
 import { Colors } from "../../style/theme";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -14,6 +13,8 @@ export default function Actions({ matches }) {
         ? ActionIconsContainerMobile
         : ActionIconsContainerDesktop;
 
+    const navigate = useNavigate();
+
     return (
         <Component>
             <MyList type="row">
@@ -21,7 +22,7 @@ export default function Actions({ matches }) {
                     sx={{
                         justifyContent: "center",
                     }}>
-                    <ListItemIcon 
+                    <ListItemIcon
                         sx={{
                             display: "flex",
                             justifyContent: "center",
@@ -31,7 +32,7 @@ export default function Actions({ matches }) {
                     </ListItemIcon>
                 </ListItemButton>
                 <Divider orientation="vertical" flexItem />
-                <ListItemButton
+                {/* <ListItemButton
                     sx={{
                         justifyContent: "center",
                     }}>
@@ -43,21 +44,21 @@ export default function Actions({ matches }) {
                         }}>
                         <FavoriteIcon />
                     </ListItemIcon>
-                </ListItemButton>
+                </ListItemButton> */}
                 <Divider orientation="vertical" flexItem />
-                    <ListItemButton to="login"
+                <ListItemButton onClick={() => navigate('/login')}
+                    sx={{
+                        justifyContent: "center",
+                    }}>
+                    <ListItemIcon
                         sx={{
+                            display: "flex",
                             justifyContent: "center",
+                            color: matches && Colors.secondary,
                         }}>
-                        <ListItemIcon
-                            sx={{
-                                display: "flex",
-                                justifyContent: "center",
-                                color: matches && Colors.secondary,
-                            }}>
-                            <LoginIcon />
-                        </ListItemIcon>
-                    </ListItemButton>
+                        <LoginIcon />
+                    </ListItemIcon>
+                </ListItemButton>
                 <Divider orientation="vertical" flexItem />
             </MyList>
         </Component>
