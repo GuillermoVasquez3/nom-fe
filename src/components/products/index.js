@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 
 export default function Products() {
 
+
     const [productos, setProductos] = useState([]);
     useEffect(() => {
         fetch("http://localhost:8080/productos/mostrar")
@@ -15,15 +16,14 @@ export default function Products() {
             .then(
                 (data) => {
                     setProductos(data)
-                    console.log(data[0].nombre)
                 },
                 (error) => {
                     console.log(error)
                 }
             )
-        }, [])
+    }, [])
 
-        
+
     const theme = useTheme();
     const matches =
         useMediaQuery(theme.breakpoints.down('md'));
@@ -46,6 +46,8 @@ export default function Products() {
             )}
         </Grid>
     ));
+
+    
 
     // EDITAR esto define el tamaño de las imagenes
 

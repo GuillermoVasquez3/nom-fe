@@ -14,6 +14,7 @@ import SignUp from "./components/signup";
 import SignIn from "./components/login";
 import SearchBox from "./components/search";
 import List from "./components/list";
+import { ProductListProvider } from "./components/products/ProductList";
 
 //arreglar orden de imagenes
 //pagina lista
@@ -23,6 +24,7 @@ import List from "./components/list";
 
 function Home() {
   return (
+    <ProductListProvider>
     <ThemeProvider theme={theme}>
       <Container maxWidth="xl" sx={{ background: '#fff' }}>
         <UIProvider>
@@ -39,6 +41,7 @@ function Home() {
         </UIProvider>
       </Container>
     </ThemeProvider>
+    </ProductListProvider>
   );
 }
 

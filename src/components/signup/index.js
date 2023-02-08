@@ -10,11 +10,17 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Fab } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 
 const theme = createTheme();
 
 export default function SignUp() {
+
+    const navigate = useNavigate();
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
@@ -97,15 +103,19 @@ export default function SignUp() {
                             Regístrate
                         </Button>
                         <Link to="../login">
-                        <Grid container justifyContent="flex-end">
-                            <Grid item>
-                                <a variant="body2">
-                                    ¿Ya tienes una cuenta? Ingresa
-                                </a>
+                            <Grid container justifyContent="flex-end">
+                                <Grid item>
+                                    <a variant="body2">
+                                        ¿Ya tienes una cuenta? Ingresa
+                                    </a>
+                                </Grid>
                             </Grid>
-                        </Grid>
                         </Link>
                     </Box>
+                    <br></br>
+                    <Fab onClick={() => navigate('/')} color="primary" aria-label="add">
+                        < ArrowBackIcon />
+                    </Fab>
                 </Box>
             </Container>
         </ThemeProvider>

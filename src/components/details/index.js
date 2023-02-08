@@ -5,11 +5,11 @@ import CloseIcon from "@mui/icons-material/Close";
 import styled from "@emotion/styled";
 import { useTheme } from "@emotion/react";
 import { Product, ProductImage } from "../../style/products";
-import IncDec from "../ui";
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import { Logo } from "../../style/banner";
 
 function SlideTransition(props) {
     return <Slide direction="down" {...props} />;
@@ -19,6 +19,7 @@ function SlideTransition(props) {
 const ProductDetailWrapper = styled(Box)(({ theme }) => ({
     display: 'felx',
     padding: theme.spacing(4),
+    minHeight: '800px'
 }));
 
 const ProductDetailInfoWrapper = styled(Box)(() => ({
@@ -74,6 +75,7 @@ export default function ProductDetail({ open, onClose, product }) {
 
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.down('md'));
+    
 
     return (
         <Dialog
@@ -83,16 +85,11 @@ export default function ProductDetail({ open, onClose, product }) {
             fullScreen
         >
             <DialogTitle
-                sx={{
-                    background: Colors.secondary,
-                }}
             >
                 <Box
                     display="flex"
                     alignItems="center"
-                    justifyContent={"space-between"}
                 >
-                    Ñom
                     <IconButton onClick={onClose}>
                         <CloseIcon />
                     </IconButton>
@@ -105,15 +102,15 @@ export default function ProductDetail({ open, onClose, product }) {
                     justifyContent={'space-around'}
                     flexDirection={matches ? "column" : "row"}>
                     <Product sx={{ mr: 4 }}>
-                        <Box sx={{ width: '100%' }}>
+                        <Box sx={{ width: '100%', }}>
                             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                                 <Tabs
                                     value={value}
                                     onChange={handleChange}
                                     aria-label="basic tabs example"
                                 >
-                                    <Tab label="Item One" {...a11yProps(0)} />
-                                    <Tab label="Item Two" {...a11yProps(1)} />
+                                    <Tab label="Producto" {...a11yProps(0)} />
+                                    <Tab label="Etiqueta" {...a11yProps(1)} />
                                 </Tabs>
                             </Box>
                             <TabPanel value={value} index={0}>
@@ -137,7 +134,6 @@ export default function ProductDetail({ open, onClose, product }) {
                             alignItems='center'
                             flexDirection='space-between'
                         >
-                            <IncDec />
                             <Button variant='contained'>
                                 Agregar a la lista
                             </Button>

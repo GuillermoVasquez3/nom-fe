@@ -11,6 +11,7 @@ export default function Footer() {
     return (
         <Box
             sx={{
+                
                 background: Colors.shaft,
                 color: Colors.white,
                 p: { xs: 4, md: 10 },

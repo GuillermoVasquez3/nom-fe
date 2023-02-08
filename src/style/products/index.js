@@ -91,3 +91,15 @@ export const ProductActionsWrapper = styled(Box)(({ show, theme }) => ({
         animation: show && `${slideInRight} 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both`,
     }
 }));
+
+export const SwitchImage = styled("img")(({ src, theme }) => ({
+    src: `url(http://localhost:8080/images/${src})`,
+    width: "15%",
+    marginLeft:"6em",
+    padding: '10px',
+    [theme.breakpoints.down("md")]: {
+        margin:"auto",
+        width: "80%",
+        padding: '24px',
+    },
+}));

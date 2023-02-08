@@ -26,7 +26,6 @@ export default function ProductMeta({ product, matches }) {
                 {product.nombre}
             </Typography>
             <Typography variant={matches ? "caption" : "body1"}>
-                40000
                 {/* Arreglar el precio */}
             </Typography>
         </ProductMetaWrapper>
