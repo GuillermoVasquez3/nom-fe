@@ -1,12 +1,16 @@
 import { useTheme } from "@mui/material/styles";
-import { Grid, useMediaQuery } from "@mui/material";
-import { products } from "../../data";
+import { Grid, TextField, Toolbar, useMediaQuery } from "@mui/material";
 import { Container } from "@mui/system";
 import SingleProduct from "./SingleProduct";
 import SingleProductDesktop from "./SingleProductDesktop";
 import { useEffect, useState } from "react";
 
 export default function Products() {
+
+    const [filter, setFilter] = useState('');
+    const handleSearchChange = (e) => {
+        setFilter(e.target.value);
+    };
 
 
     const [productos, setProductos] = useState([]);
@@ -30,6 +34,7 @@ export default function Products() {
 
     const renderProducts = productos.map(product => (
         <Grid
+            id="productos"
             item
             key={product.id}
             xs={2}
@@ -47,13 +52,31 @@ export default function Products() {
         </Grid>
     ));
 
-    
+
+
 
     // EDITAR esto define el tamaño de las imagenes
 
     return (
-        <Container>
-            <Grid
+        <Container sx={{marginBottom: '30px'}}>
+            <Toolbar >
+                <div>
+                    <TextField
+                        onChange={handleSearchChange}
+                        label="Busqueda..."
+                        variant="standard"
+                    />
+                </div>
+            </Toolbar >
+            <Grid container spacing={2} >
+                {
+                    Object.keys(productos).map(key =>
+                        productos[key].nombre.toLowerCase().includes(filter.toLowerCase()) &&
+                        renderProducts[key]
+                    )
+                }
+            </Grid>
+            {/* <Grid
                 container
                 spacing={{ xs: 2, md: 3 }}
                 justifyContent="center"
@@ -61,7 +84,7 @@ export default function Products() {
                 columns={{ xs: 4, sm: 8, md: 12 }}
             >
                 {renderProducts}
-            </Grid>
+            </Grid> */}
         </Container>
     );
 }

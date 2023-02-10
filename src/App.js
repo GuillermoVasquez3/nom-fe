@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { Box, Button, Container, Typography } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 import { ThemeProvider } from '@mui/system';
 import { useEffect } from 'react';
 import Appbar from './components/appbar';
@@ -12,7 +12,6 @@ import { UIProvider } from './context/ui';
 import theme from './style/theme';
 import SignUp from "./components/signup";
 import SignIn from "./components/login";
-import SearchBox from "./components/search";
 import List from "./components/list";
 import { ProductListProvider } from "./components/products/ProductList";
 
@@ -29,7 +28,6 @@ function Home() {
       <Container maxWidth="xl" sx={{ background: '#fff' }}>
         <UIProvider>
           <Appbar />
-          <SearchBox/>
           <Banner />
           <News />
           <Box display="flex" justifyContent={"center"} sx={{ p: 4 }}>
@@ -57,6 +55,7 @@ function App() {
         <Route path="login" element={ <SignIn/> } />
         <Route path="signup" element={ <SignUp/> } />
         <Route path="list" element={ <List/> } />
+        <Route path="products" element={ <Products/> } />
         {/* 
         template de router
         <Route path="aboutus" element={ <SignIn/> } /> */}

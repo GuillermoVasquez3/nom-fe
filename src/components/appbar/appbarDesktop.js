@@ -1,16 +1,15 @@
-import { ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
-import { AppbarContainer, AppbarHeader, MyList, ActionIconsContainerDesktop, ActionIconsContainerMobile } from "../../style/appbar";
-import SearchIcon from "@mui/icons-material/Search";
+import { ListItemButton, ListItemText } from "@mui/material";
+import { AppbarContainer, AppbarHeader, MyList } from "../../style/appbar";
 import Actions from "./actions";
-import { useUIContext } from "../../context/ui";
 import { Logo } from "../../style/banner";
 import { useNavigate } from "react-router-dom";
+
 
 export default function AppbarDesktop({ matches }) {
 
     const navigate = useNavigate();
 
-    const { setShowSearchBox } = useUIContext();
+    // const { setShowSearchBox } = useUIContext();
 
     return (
         <AppbarContainer>
@@ -21,17 +20,17 @@ export default function AppbarDesktop({ matches }) {
                 <ListItemButton onClick={() => navigate('/')}>
                     <ListItemText primary="Inicio" />
                 </ListItemButton>
-                <ListItemButton>
+                {/* <ListItemButton>
                 <ListItemText onClick={() => navigate('/categorias')} primary="Categorias" />
-                </ListItemButton>
-                <ListItemButton>
-                <ListItemText primary="Productos" />
-                </ListItemButton>
-                <ListItemButton onClick={() => setShowSearchBox(true)}  >
+                </ListItemButton> */}
+                    <ListItemButton>
+                        <ListItemText primary="Productos" />
+                    </ListItemButton>
+                {/* <ListItemButton onClick={() => setShowSearchBox(true)}  >
                     <ListItemIcon>
                         <SearchIcon />
                     </ListItemIcon>
-                </ListItemButton>
+                </ListItemButton> */}
             </MyList>
             <Actions matches={matches} />
         </AppbarContainer>

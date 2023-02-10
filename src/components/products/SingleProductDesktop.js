@@ -109,6 +109,7 @@ export default function SingleProductDesktop({ product, matches }) {
         localStorage.setItem('listaProductos', JSON.stringify([]));
         localStorage.setItem('listaProductos', JSON.stringify(productList));
     };
+
     const [ProductDetailDialog, showProductDetailDialog] =
         useDialogModal(ProductDetail);
 

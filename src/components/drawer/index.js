@@ -35,23 +35,11 @@ export default function AppDrawer() {
             <Drawer open={drawerOpen}>
                 <List>
                     <ListItemButton>
-                        <ListItemText>Home</ListItemText>
+                        <ListItemText>Inicio</ListItemText>
                     </ListItemButton>
                     <MiddleDivider />
                     <ListItemButton>
-                        <ListItemText>Categories</ListItemText>
-                    </ListItemButton>
-                    <MiddleDivider />
-                    <ListItemButton>
-                        <ListItemText>Products</ListItemText>
-                    </ListItemButton>
-                    <MiddleDivider />
-                    <ListItemButton>
-                        <ListItemText>About Us</ListItemText>
-                    </ListItemButton>
-                    <MiddleDivider />
-                    <ListItemButton>
-                        <ListItemText>Contact Us</ListItemText>
+                        <ListItemText>Productos</ListItemText>
                     </ListItemButton>
                     <MiddleDivider />
                 </List>

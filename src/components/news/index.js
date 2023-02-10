@@ -5,7 +5,7 @@ import { MessageText, NewsContainer } from "../../style/news";
 
 
 const messages = [
-    "Usa categoria para una mejor navegacion",
+    "Usa barra de búsqueda para una mejor navegacion",
     "Recuerda que puedes crear una lista",
     "Disfruta de tu estancia",
 ];
